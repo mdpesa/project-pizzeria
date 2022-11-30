@@ -177,42 +177,35 @@
           const option = param.options[optionId];
           console.log(optionId, option);
 
-          // for every option in this category
-          for (let optionId in param.options) {
-            // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
-            const option = param.options[optionId];
-            console.log(optionId, option);
-
-            const optionSelected =
-              formData[paramId] && formData[paramId].includes(optionId);
-            // check if there is param with a name of paramId in formData and if it includes optionId
-            /* find image with class '.paramId-optionId' in the image wrapper*/
-            const optionImage = thisProduct.imageWrapper.querySelector(
-              '.' + paramId + '-' + optionId
-            );
-            console.log('optionImage:', optionImage);
-            /* check if image exists*/
-            if (optionImage) {
-              /* if image exists and option is selected, add class active to display image...*/
-              if (optionSelected) {
+          const optionSelected =
+            formData[paramId] && formData[paramId].includes(optionId);
+          // check if there is param with a name of paramId in formData and if it includes optionId
+          /* find image with class '.paramId-optionId' in the image wrapper*/
+          const optionImage = thisProduct.imageWrapper.querySelector(
+            '.' + paramId + '-' + optionId
+          );
+          console.log('optionImage:', optionImage);
+          /* check if image exists*/
+          if (optionImage) {
+            /* if image exists and option is selected, add class active to display image...*/
+            if (optionSelected) {
               optionImage.classList.add(classNames.menuProduct.imageVisible);
               /* ...if not, remove class active to hide foto*/
-              } else {
-              optionImage.classList.remove(classNames.menuProduct.imageVisible);
-              }
-            }
-            if (optionSelected) {
-              // check if the option is not default
-              if (!option.default == true) {
-                // add option price to price variable
-                price += option.price;
-              }
             } else {
-              // check if the option is default
-              if (!option.default == false) {
-                // reduce price variable
-                price -= option.price;
-              }
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
+          if (optionSelected) {
+            // check if the option is not default
+            if (!option.default == true) {
+              // add option price to price variable
+              price += option.price;
+            }
+          } else {
+            // check if the option is default
+            if (!option.default == false) {
+              // reduce price variable
+              price -= option.price;
             }
           }
         }
