@@ -252,10 +252,10 @@
           }
         }
       }
+      thisProduct.priceSingle = price;
       /* multiply price by amount*/
       price *= thisProduct.amountWidget.value;
 
-      thisProduct.priceSingle = price;
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
@@ -326,8 +326,8 @@
     constructor(element) {
       const thisWidget = this;
 
-      console.log('AmountWidget', thisWidget);
-      console.log('constructor arguments:', element);
+      //console.log('AmountWidget', thisWidget);
+      //console.log('constructor arguments:', element);
 
       thisWidget.getElements(element);
       thisWidget.setValue(settings.amountWidget.defaultValue);
