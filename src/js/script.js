@@ -532,10 +532,10 @@
       const payload = {
         address: thisCart.dom.address.value,
         phone: thisCart.dom.phone.value,
-        totalPrice: thisCart.dom.totalPrice,
+        totalPrice: thisCart.totalPrice,
         subtotalPrice: thisCart.subtotalPrice,
         totalNumber: thisCart.totalNumber,
-        deliveryFree: thisCart.deliveryFree,
+        deliveryFee: settings.cart.defaultDeliveryFee,
         products: [],
       };
 
