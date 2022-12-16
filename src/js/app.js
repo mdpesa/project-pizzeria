@@ -47,7 +47,7 @@ const app = {
       //   } else {
       //     page.classList.remove(classNames.pages.active);
       //   }
-      page.classList.toggle(classNames.pages.active, (page.id = pageId));
+      page.classList.toggle(classNames.pages.active, (page.id == pageId));
     }
     /* add class 'active' to matching links, remove from non-matching */
     for (let link of thisApp.navLinks) {
