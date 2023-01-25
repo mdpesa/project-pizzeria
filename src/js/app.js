@@ -3,6 +3,7 @@ import { settings, select, classNames, templates } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import HomePage from './components/HomePage.js';
 
 const app = {
   initPages: function () {
@@ -56,6 +57,13 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
+  },
+
+  initHome: function () {
+    const thisApp = this;
+
+    const homeElem = document.querySelector(select.containerOf.home);
+    thisApp.home = new HomePage(homeElem);
   },
 
   initBooking: function () {
@@ -125,6 +133,7 @@ const app = {
     console.log('templates:', templates);
 
     thisApp.initPages();
+    thisApp.initHome();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();

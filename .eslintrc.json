@@ -23,6 +23,7 @@
     "no-console": ["off"]
   },
   "globals": {
-    "Handlebars": false
+    "Handlebars": false,
+    "Flickity": false
   }
 }
