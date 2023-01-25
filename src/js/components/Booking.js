@@ -201,7 +201,7 @@ class Booking {
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(
       select.cart.address
     );
-    thisBooking.dom.SelectedStarters = thisBooking.dom.wrapper.querySelector(
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(
       select.cart.starters
     );
     thisBooking.dom.bookingForm = thisBooking.dom.wrapper.querySelector(
@@ -256,13 +256,10 @@ class Booking {
       if (clickOnTable.classList.contains('table'))
         thisBooking.initTables(clickOnTable);
     });
-    thisBooking.dom.bookTableButton.addEventListener(
-      'submit',
-      function (event) {
-        event.preventDefault();
-        thisBooking.sendBooking();
-      }
-    );
+    thisBooking.dom.bookTableButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
   }
 
   sendBooking() {
@@ -273,13 +270,13 @@ class Booking {
       date: thisBooking.date,
       hour: utils.numberToHour(thisBooking.hour),
       table: parseInt(thisBooking.selectedTable),
-      duration: parseInt(thisBooking.hourAmountWidget.correctValue),
+      duration: parseInt(thisBooking.hoursAmount.value),
       ppl: thisBooking.peopleAmount.value,
       starters: [],
       phone: thisBooking.dom.phoneNumber.value,
       address: thisBooking.dom.address.value,
     };
-
+    console.log(thisBooking.dom.starters);
     for (let starter of thisBooking.dom.starters) {
       if (starter.checked) {
         payload.starters.push(starter.value);
